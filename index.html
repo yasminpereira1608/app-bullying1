@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - Stop Bullying</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <div class="login-container">
+        <h1 class="logo">
+            <span class="logo-stop">STOP</span> BULLYING
+        </h1>
+
+        <form class="login-form">
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" placeholder="Seu usuário" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Sua senha" required>
+            </div>
+            
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+
+        <div class="footer-links">
+            <a href="#">Esqueceu a senha?</a>
+            <a href="#">Não tem conta? <strong>Cadastre-se</strong></a>
+        </div>
+    </div>
+
 </body>
 </html>

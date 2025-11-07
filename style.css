@@ -1,0 +1,115 @@
+/* Importa a fonte Nunito (colocado no HTML, mas pode ser aqui também) */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap'); */
+
+/* Configurações gerais da página */
+body {
+    /* ==== MUDANÇA: FONTE MAIS FOFA ==== */
+    font-family: 'Nunito', sans-serif;
+    background-color: #f7f9fc; /* Fundo um pouco mais claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* A caixa/card principal do login */
+.login-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    /* ==== MUDANÇA: MAIS REDONDO ==== */
+    border-radius: 15px; 
+    /* ==== MUDANÇA: SOMBRA MAIS SUAVE ==== */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Estilo do Logo "STOP BULLYING" */
+.logo {
+    text-align: center;
+    font-size: 2.5rem;
+    /* ==== MUDANÇA: PESO DA FONTE ==== */
+    font-weight: 800; /* Deixa o logo mais "gordinho" */
+    color: #333;
+    margin: 0 0 2rem 0;
+}
+
+.logo-stop {
+    /* ==== MUDANÇA: AZUL MAIS FOFO/SUAVE ==== */
+    color: #74b9ff; 
+    text-transform: uppercase;
+}
+
+/* Grupo de Label + Input */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    /* ==== MUDANÇA: PESO DA FONTE ==== */
+    font-weight: 700;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    /* ==== MUDANÇA: MAIS "ALTO" ==== */
+    padding: 14px; 
+    border: 1px solid #eee;
+    /* ==== MUDANÇA: MAIS REDONDO ==== */
+    border-radius: 10px;
+    box-sizing: border-box; 
+    font-family: 'Nunito', sans-serif; /* Garante a fonte aqui também */
+}
+
+/* Botão de Entrar */
+.login-button {
+    width: 100%;
+    /* ==== MUDANÇA: MAIS "ALTO" ==== */
+    padding: 15px;
+    /* ==== MUDANÇA: AZUL MAIS FOFO/SUAVE ==== */
+    background-color: #74b9ff; 
+    color: white;
+    border: none;
+    /* ==== MUDANÇA: MAIS REDONDO ==== */
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem; /* Um pouco maior */
+    /* ==== MUDANÇA: PESO DA FONTE ==== */
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    font-family: 'Nunito', sans-serif;
+}
+
+.login-button:hover {
+    /* ==== MUDANÇA: HOVER MAIS SUAVE ==== */
+    background-color: #55a6ff; 
+}
+
+/* Links do rodapé */
+.footer-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links a strong {
+    /* ==== MUDANÇA: AZUL MAIS FOFO/SUAVE ==== */
+    color: #74b9ff; 
+    font-weight: 700;
+}
