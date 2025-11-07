@@ -79,6 +79,25 @@
         button:hover {
             background-color: #1565c0;
         }
+        .quick-options {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 5px;
+            background-color: #e3f2fd;
+        }
+        .quick-option {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        .quick-option:hover {
+            background-color: #1565c0;
+        }
     </style>
 </head>
 <body>
@@ -89,76 +108,154 @@
         <div id="messages">
             <div class="message bot">Olá! Como posso ajudá-lo hoje? Conte-me o que está acontecendo. 😊</div>
         </div>
+        <div class="quick-options">
+            <button class="quick-option" onclick="quickMessage('Estou sofrendo bullying')">Bullying</button>
+            <button class="quick-option" onclick="quickMessage('Preciso de ajuda')">Ajuda</button>
+            <button class="quick-option" onclick="quickMessage('Estou com medo')">Medo</button>
+            <button class="quick-option" onclick="quickMessage('Estou triste')">Tristeza</button>
+        </div>
         <div id="input-container">
             <input type="text" id="user-input" placeholder="Digite sua mensagem...">
             <button onclick="sendMessage()">📤</button>
         </div>
     </div>
-
     <script>
         function getBotResponse(userMessage) {
-            const lowerMessage = userMessage.toLowerCase();
+            console.log("Mensagem recebida:", userMessage);
             
-            if (lowerMessage.includes('bullying') || lowerMessage.includes('assédio') || lowerMessage.includes('intimidação')) {
-                return "Entendo que o bullying é doloroso e injusto. Você não merece isso – é um problema do agressor. Vamos pensar em como denunciar ou buscar apoio. Ligue para 190 se for urgente. 💪";
-            } else if (lowerMessage.includes('ajuda') || lowerMessage.includes('socorro') || lowerMessage.includes('preciso de ajuda')) {
-                return "Estou aqui para ajudar! Conte-me mais detalhes sobre o que está acontecendo. Podemos conectar você a recursos como o CVV (188) ou centros de apoio a idosos. 🤝";
-            } else if (lowerMessage.includes('obrigado') || lowerMessage.includes('agradeço')) {
-                return "De nada! Fico feliz em ajudar. Lembre-se: você é forte e merece respeito. Se precisar de mais, estou aqui. 😊";
-            } else if (lowerMessage.includes('família') || lowerMessage.includes('filhos') || lowerMessage.includes('amigos')) {
-                return "Família e amigos podem ser grandes aliados. Que tal conversar com alguém de confiança? Eles podem ajudar a resolver a situação. Se precisar de dicas, me diga. 👨‍👩‍👧‍👦";
-            } else if (lowerMessage.includes('medo') || lowerMessage.includes('assustado') || lowerMessage.includes('inseguro')) {
-                return "É normal se sentir assim. Vamos focar em passos para sua segurança, como evitar situações de risco ou buscar proteção. Você não está sozinho. 🛡️";
-            } else if (lowerMessage.includes('depressão') || lowerMessage.includes('triste') || lowerMessage.includes('sozinho')) {
-                return "Sinto muito que você se sinta assim. A solidão pode ser pesada, mas há ajuda disponível. O CVV (188) é confidencial e gratuito. Vamos conversar mais? ❤️";
-            } else {
-                
-                return "Obrigado por compartilhar. Cada detalhe ajuda a entender melhor. Vamos juntos encontrar uma solução. Conte-me mais se quiser. 🌟";
+            // Verifica se a mensagem está vazia
+            if (!userMessage || userMessage.trim() === '') {
+                return "Por favor, digite uma mensagem para que eu possa ajudá-lo. 😊";
             }
+            
+            const lowerMessage = userMessage.toLowerCase().trim();
+            console.log("Mensagem processada:", lowerMessage);
+            
+            // Verificação direta e simplificada
+            if (lowerMessage.includes('bullying') || 
+                lowerMessage.includes('assedio') || 
+                lowerMessage.includes('assédio') || 
+                lowerMessage.includes('intimidacao') || 
+                lowerMessage.includes('intimidação') ||
+                lowerMessage.includes('zoação') ||
+                lowerMessage.includes('zoeira') ||
+                lowerMessage.includes('humilhação') ||
+                lowerMessage.includes('humilhacao')) {
+                console.log("Identificado: bullying");
+                return "Entendo que o bullying é doloroso e injusto. Você não merece isso – é um problema do agressor. Vamos pensar em como denunciar ou buscar apoio. Ligue para 190 se for urgente. 💪";
+            } 
+            
+            if (lowerMessage.includes('ajuda') || 
+                lowerMessage.includes('socorro') || 
+                lowerMessage.includes('preciso de ajuda') || 
+                lowerMessage.includes('emergencia') || 
+                lowerMessage.includes('emergência') ||
+                lowerMessage.includes('urgencia') ||
+                lowerMessage.includes('urgência') ||
+                lowerMessage.includes('socorro')) {
+                console.log("Identificado: ajuda");
+                return "Estou aqui para ajudar! Conte-me mais detalhes sobre o que está acontecendo. Podemos conectar você a recursos como o CVV (188) ou centros de apoio a idosos. 🤝";
+            } 
+            
+            if (lowerMessage.includes('obrigado') || 
+                lowerMessage.includes('obrigada') || 
+                lowerMessage.includes('agradeço') || 
+                lowerMessage.includes('agradeco') || 
+                lowerMessage.includes('valeu') ||
+                lowerMessage.includes('grato') ||
+                lowerMessage.includes('gratidao') ||
+                lowerMessage.includes('obg')) {
+                console.log("Identificado: agradecimento");
+                return "De nada! Fico feliz em ajudar. Lembre-se: você é forte e merece respeito. Se precisar de mais, estou aqui. 😊";
+            } 
+            
+            if (lowerMessage.includes('familia') || 
+                lowerMessage.includes('família') || 
+                lowerMessage.includes('filhos') || 
+                lowerMessage.includes('amigos') || 
+                lowerMessage.includes('parentes') ||
+                lowerMessage.includes('filho') ||
+                lowerMessage.includes('filha') ||
+                lowerMessage.includes('familiares')) {
+                console.log("Identificado: família");
+                return "Família e amigos podem ser grandes aliados. Que tal conversar com alguém de confiança? Eles podem ajudar a resolver a situação. Se precisar de dicas, me diga. 👨‍👩‍👧‍👦";
+            } 
+            
+            if (lowerMessage.includes('medo') || 
+                lowerMessage.includes('assustado') || 
+                lowerMessage.includes('assustada') || 
+                lowerMessage.includes('inseguro') || 
+                lowerMessage.includes('insegura') ||
+                lowerMessage.includes('amedrontado') ||
+                lowerMessage.includes('temeroso') ||
+                lowerMessage.includes('amedrontada')) {
+                console.log("Identificado: medo");
+                return "É normal se sentir assim. Vamos focar em passos para sua segurança, como evitar situações de risco ou buscar proteção. Você não está sozinho. 🛡️";
+            } 
+            
+            if (lowerMessage.includes('depressao') || 
+                lowerMessage.includes('depressão') || 
+                lowerMessage.includes('triste') || 
+                lowerMessage.includes('sozinho') || 
+                lowerMessage.includes('sozinha') ||
+                lowerMessage.includes('solidão') ||
+                lowerMessage.includes('solidao') ||
+                lowerMessage.includes('chateado') ||
+                lowerMessage.includes('chateada') ||
+                lowerMessage.includes('tristeza') ||
+                lowerMessage.includes('solitaria') ||
+                lowerMessage.includes('solitário')) {
+                console.log("Identificado: tristeza");
+                return "Sinto muito que você se sinta assim. A solidão pode ser pesada, mas há ajuda disponível. O CVV (188) é confidencial e gratuito. Vamos conversar mais? ❤️";
+            } 
+            
+            // Se não encontrou nenhuma palavra-chave
+            console.log("Nenhuma palavra-chave encontrada, caindo no else");
+            return "Obrigado por compartilhar. Cada detalhe ajuda a entender melhor. Vamos juntos encontrar uma solução. Conte-me mais se quiser. 🌟";
         }
         
         function sendMessage() {
             const input = document.getElementById('user-input');
             const messages = document.getElementById('messages');
+            const userText = input.value.trim();
             
-            if (input.value.trim() !== '') {
-               
+            console.log("Texto capturado do input:", userText);
+            
+            if (userText !== '') {
+                // Adiciona mensagem do usuário
                 const userMessage = document.createElement('div');
                 userMessage.className = 'message user';
-                userMessage.textContent = input.value;
+                userMessage.textContent = userText;
                 messages.appendChild(userMessage);
                 
-                
+                // Adiciona resposta do bot após um pequeno atraso
                 setTimeout(() => {
                     const botMessage = document.createElement('div');
                     botMessage.className = 'message bot';
-                    botMessage.textContent = getBotResponse(input.value);
+                    botMessage.textContent = getBotResponse(userText);
                     messages.appendChild(botMessage);
                     messages.scrollTop = messages.scrollHeight; 
-                }, 1000);
+                }, 500);
                 
                 input.value = '';
                 messages.scrollTop = messages.scrollHeight;
+            } else {
+                console.log("Input vazio - não enviando mensagem");
             }
         }
         
+        function quickMessage(text) {
+            console.log("Botão rápido clicado:", text);
+            document.getElementById('user-input').value = text;
+            sendMessage();
+        }
         
         document.getElementById('user-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
+                console.log("Enter pressionado");
                 sendMessage();
             }
         });
     </script>
 </body>
 </html>
-
-<a href="../pages/samara.html">Ir para Página 2</a>
-
-<!-- Pasta anterior -->
-<a href="../pagina2.html">Voltar uma pasta</a>
-
-<!-- Subpasta -->
-<a href="pasta/pagina2.html">Entrar em uma pasta</a>
-
-<!-- Pasta anterior e depois subpasta -->
-<a href="../outra-pasta/pagina2.html">Voltar e entrar em outra pasta</a>
