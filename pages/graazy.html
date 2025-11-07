@@ -1,1 +1,164 @@
-g
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat de Ajuda para Idosos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #e3f2fd; 
+            margin: 0;
+            padding: 0;
+        }
+        #chat-container {
+            max-width: 400px;
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #1976d2; 
+            color: white;
+        }
+        #header {
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            background-color: #1565c0; 
+        }
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f5f5f5; 
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 70%;
+            word-wrap: break-word;
+            font-size: 1.1em; 
+        }
+        .user {
+            background-color: #2196f3; 
+            color: white;
+            margin-left: auto;
+            text-align: right;
+            border-bottom-right-radius: 0;
+        }
+        .bot {
+            background-color: white;
+            color: black;
+            margin-right: auto;
+            text-align: left;
+            border-bottom-left-radius: 0;
+        }
+        #input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #e3f2fd; 
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1em;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #1976d2; 
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="header">
+            💬 Chat de Ajuda para Idosos
+        </div>
+        <div id="messages">
+            <div class="message bot">Olá! Como posso ajudá-lo hoje? Conte-me o que está acontecendo. 😊</div>
+        </div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button onclick="sendMessage()">📤</button>
+        </div>
+    </div>
+
+    <script>
+        function getBotResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            if (lowerMessage.includes('bullying') || lowerMessage.includes('assédio') || lowerMessage.includes('intimidação')) {
+                return "Entendo que o bullying é doloroso e injusto. Você não merece isso – é um problema do agressor. Vamos pensar em como denunciar ou buscar apoio. Ligue para 190 se for urgente. 💪";
+            } else if (lowerMessage.includes('ajuda') || lowerMessage.includes('socorro') || lowerMessage.includes('preciso de ajuda')) {
+                return "Estou aqui para ajudar! Conte-me mais detalhes sobre o que está acontecendo. Podemos conectar você a recursos como o CVV (188) ou centros de apoio a idosos. 🤝";
+            } else if (lowerMessage.includes('obrigado') || lowerMessage.includes('agradeço')) {
+                return "De nada! Fico feliz em ajudar. Lembre-se: você é forte e merece respeito. Se precisar de mais, estou aqui. 😊";
+            } else if (lowerMessage.includes('família') || lowerMessage.includes('filhos') || lowerMessage.includes('amigos')) {
+                return "Família e amigos podem ser grandes aliados. Que tal conversar com alguém de confiança? Eles podem ajudar a resolver a situação. Se precisar de dicas, me diga. 👨‍👩‍👧‍👦";
+            } else if (lowerMessage.includes('medo') || lowerMessage.includes('assustado') || lowerMessage.includes('inseguro')) {
+                return "É normal se sentir assim. Vamos focar em passos para sua segurança, como evitar situações de risco ou buscar proteção. Você não está sozinho. 🛡️";
+            } else if (lowerMessage.includes('depressão') || lowerMessage.includes('triste') || lowerMessage.includes('sozinho')) {
+                return "Sinto muito que você se sinta assim. A solidão pode ser pesada, mas há ajuda disponível. O CVV (188) é confidencial e gratuito. Vamos conversar mais? ❤️";
+            } else {
+                
+                return "Obrigado por compartilhar. Cada detalhe ajuda a entender melhor. Vamos juntos encontrar uma solução. Conte-me mais se quiser. 🌟";
+            }
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const messages = document.getElementById('messages');
+            
+            if (input.value.trim() !== '') {
+               
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user';
+                userMessage.textContent = input.value;
+                messages.appendChild(userMessage);
+                
+                
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot';
+                    botMessage.textContent = getBotResponse(input.value);
+                    messages.appendChild(botMessage);
+                    messages.scrollTop = messages.scrollHeight; 
+                }, 1000);
+                
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+        
+        
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
+
+<a href="../pages/samara.html">Ir para Página 2</a>
+
+<!-- Pasta anterior -->
+<a href="../pagina2.html">Voltar uma pasta</a>
+
+<!-- Subpasta -->
+<a href="pasta/pagina2.html">Entrar em uma pasta</a>
+
+<!-- Pasta anterior e depois subpasta -->
+<a href="../outra-pasta/pagina2.html">Voltar e entrar em outra pasta</a>
